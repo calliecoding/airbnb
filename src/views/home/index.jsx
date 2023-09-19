@@ -1,10 +1,13 @@
 import React, { memo, useEffect, useState } from "react";
 
 import myRequest from "@/services";
+import HomeWrapper from "./style";
+import HomeBanner from "./c-cpns/home-banner/index.jsx";
 
 const Home = memo(() => {
   const [highScore, setHighScore] = useState({});
 
+  
   useEffect(() => {
     myRequest
       .get({
@@ -16,19 +19,15 @@ const Home = memo(() => {
       });
   }, []);
   return (
-  <div>
-        <h2>{highScore.title}</h2>
-        <h2>{highScore.subtitle}</h2>
-        <ul>
-            {
-                highScore.list?.length && 
-                highScore.list.map(item=>{
-                    return <li key={item.id}>{item.name}</li>
-                })
-            }
-        </ul>
-  </div>
-  )
+    <HomeWrapper>
+      {/* <div className="home"> */}
+        <HomeBanner/>
+        <div className="content">
+        content
+        </div>
+      {/* </div> */}
+     </HomeWrapper>
+  );
 });
 
 export default Home;
