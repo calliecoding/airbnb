@@ -4,6 +4,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import HomeWrapper from "./style";
 import HomeBanner from "./c-cpns/home-banner/index.jsx";
 import { fetchHomeDataAction } from "@/store/modeules/home";
+import SectionHeader from "@/components/section-header";
 
 const Home = memo(() => {
   //   const [highScore, setHighScore] = useState({});
@@ -27,13 +28,14 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <h2> {goodPriceInfo.title}</h2>
-        <ul>
-          {
-            goodPriceInfo.list?.map((item) => {
+        <div className="good-price">
+          <SectionHeader title={goodPriceInfo.title}/>
+          <ul>
+            {goodPriceInfo.list?.map((item) => {
               return <li key={item.id}>{item.name}</li>;
             })}
-        </ul>
+          </ul>
+        </div>
       </div>
     </HomeWrapper>
   );
