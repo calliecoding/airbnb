@@ -9,6 +9,12 @@ const theme = {
         justify-content: center;
         align-items: center;
     `,
+    betweenCenter: `
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+`,
+    
   },
   text: {
     primaryColor: "#484848",
