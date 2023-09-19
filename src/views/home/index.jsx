@@ -5,6 +5,7 @@ import HomeWrapper from "./style";
 import HomeBanner from "./c-cpns/home-banner/index.jsx";
 import { fetchHomeDataAction } from "@/store/modeules/home";
 import SectionHeader from "@/components/section-header";
+import RoomItem from "@/components/room-item";
 
 const Home = memo(() => {
   //   const [highScore, setHighScore] = useState({});
@@ -29,10 +30,10 @@ const Home = memo(() => {
       <HomeBanner />
       <div className="content">
         <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title}/>
-          <ul>
-            {goodPriceInfo.list?.map((item) => {
-              return <li key={item.id}>{item.name}</li>;
+          <SectionHeader title={goodPriceInfo.title} />
+          <ul className="room-list">
+            {goodPriceInfo.list?.slice(0,8).map((item) => {
+              return <RoomItem key={item.id} itemData={item} />;
             })}
           </ul>
         </div>

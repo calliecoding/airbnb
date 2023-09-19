@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 const HomeWrapper = styled.div`
-   > .content{
-        height: 1032px;
-        margin: 0 auto;
-    }
+  > .content {
+    width: 1032px;
+    margin: 0 auto;
+  }
 
-    .good-price{
-        margin-top: 30px;
-    }
-`
+  .good-price {
+    margin-top: 30px;
+  }
 
-export default HomeWrapper
+  .room-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+  }
+`;
+
+export default HomeWrapper;
