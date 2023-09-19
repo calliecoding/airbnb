@@ -4,7 +4,6 @@ import { BASE_URL, TIME_OUT } from "./config";
 
 class MyRequest {
   constructor(baseURL, timeout) {
-    console.log(111,baseURL, timeout);
     this.instance = axios.create({
         baseURL,
         timeout
@@ -16,15 +15,6 @@ class MyRequest {
         return err
       })
 
-    // this.instance.interceptors.response.use(
-    //   (res) => {
-    //     return res.data;
-    //   },
-    //   (err) => {
-    //     console.log('net err');
-    //     return err;
-    //   }
-    // );
   }
 
   // 请求方法
@@ -33,7 +23,6 @@ class MyRequest {
   }
 
   get(config) {
-    console.log('222',config);
     return this.request({ ...config, method: "get" });
   }
   post(config) {

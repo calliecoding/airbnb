@@ -1,16 +1,29 @@
-
 //  RTK模式
 
-import { createSlice } from "@reduxjs/toolkit";
+import { getHomeGoodPriceData } from "@/services";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+export const fetchHomeDataAction = createAsyncThunk("fetchdata", async() => {
+  const res = await getHomeGoodPriceData()
+
+  return res
+});
 const homeSlice = createSlice({
-    name:'home',
-    initialState:{
-
+  name: "home",
+  initialState: {
+    goodPriceInfo: {},
+  },
+  reducers: {
+    changeGoodPriceAction(state, { payload }) {
+      state.goodPriceInfo = payload;
     },
-    reducers:{
-
+  },
+  extraReducers:{
+    [fetchHomeDataAction.fulfilled](state, {payload}){
+        state.goodPriceInfo = payload
     }
-})
+  }
+});
 
-export default homeSlice.reducer
+export const { changeGoodPriceAction } = homeSlice.actions;
+export default homeSlice.reducer;
