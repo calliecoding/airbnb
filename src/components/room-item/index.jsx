@@ -5,9 +5,16 @@ import Rating from "@mui/material/Rating";
 import { ItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
-  const { itemData } = props;
+  const { itemData, itemWidth} = props;
+
+  // 动态样式
+  const customStyle = {
+    verifycolor: itemData?.verify_info?.text_color || "#39576a",
+    contentcolor: itemData?.bottom_info?.content_color || "green",
+    itemWidth,
+  };
   return (
-    <ItemWrapper verifycolor={itemData?.verify_info?.text_color || "#39576a"} contentcolor={itemData?.bottom_info?.content_color || "green"}>
+    <ItemWrapper {...customStyle}>
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} alt="" />
@@ -25,9 +32,7 @@ const RoomItem = memo((props) => {
           />
           <span className="count">{itemData.reviews_count}</span>
           {itemData.bottom_info && (
-            <span className="extra" >
-              · {itemData.bottom_info?.content}
-            </span>
+            <span className="extra">· {itemData.bottom_info?.content}</span>
           )}
         </div>
       </div>
@@ -37,6 +42,7 @@ const RoomItem = memo((props) => {
 
 RoomItem.propTypes = {
   itemData: PropTypes.object,
+  itemWidth:PropTypes.string
 };
 
 export default RoomItem;

@@ -12,10 +12,11 @@ const Home = memo(() => {
   //   const [highScore, setHighScore] = useState({});
 
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo } = useSelector(
+  const { goodPriceInfo, highScoreInfo, discountInfo } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
       highScoreInfo: state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo,
     }),
     shallowEqual
   );
@@ -31,7 +32,22 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
+        {/* 折扣数据 */}
+
+        {discountInfo && (
+          <div className="discount">
+            <SectionHeader
+              title={discountInfo.title}
+              subtitle={discountInfo.subtitle}
+            />
+
+            <SectionRooms roomList={discountInfo?.dest_list?.["广州"]} itemWidth={"33.3%"}/>
+          </div>
+        )}
+
+        {/* 高性价比 */}
         <HomeSectionV1 inforData={goodPriceInfo} />
+        {/* 高分 */}
         <HomeSectionV1 inforData={highScoreInfo} />
       </div>
     </HomeWrapper>
