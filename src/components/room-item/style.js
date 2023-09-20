@@ -46,4 +46,15 @@ export const ItemWrapper = styled.div`
   .price {
     margin: 8px 0;
   }
+
+  .bottom {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: ${(props) => props.theme.text.primaryColor};
+    .extra {
+      color: ${(props) => props.contentcolor};
+    }
+  }
 `;

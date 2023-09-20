@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
+
 import HomeWrapper from "./style";
 import HomeBanner from "./c-cpns/home-banner/index.jsx";
 import { fetchHomeDataAction } from "@/store/modeules/home";
