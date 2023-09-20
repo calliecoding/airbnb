@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ItemWrapper = styled.div`
+export const ItemWrapper = styled.li`
   width: ${props => [props.itemWidth]};
   padding: 8px;
   box-sizing: border-box;

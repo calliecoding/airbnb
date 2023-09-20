@@ -7,6 +7,7 @@ import { fetchHomeDataAction } from "@/store/modeules/home";
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
 import HomeSectionV1 from "./c-cpns/home-section-v1";
+import SectionTabs from "@/components/section-tabs";
 
 const Home = memo(() => {
   //   const [highScore, setHighScore] = useState({});
@@ -20,6 +21,10 @@ const Home = memo(() => {
     }),
     shallowEqual
   );
+  /** 数据转换 */
+  const tabNames = Object.keys(discountInfo?.dest_list??{})
+
+
 
   /** 派发异步事件：发送网络请求 */
   const dispatch = useDispatch();
@@ -28,27 +33,30 @@ const Home = memo(() => {
   useEffect(() => {
     dispatch(fetchHomeDataAction());
   }, [dispatch]);
+
   return (
     <HomeWrapper>
-      <HomeBanner />
+      {/* <HomeBanner /> */}
       <div className="content">
         {/* 折扣数据 */}
-
         {discountInfo && (
           <div className="discount">
             <SectionHeader
               title={discountInfo.title}
               subtitle={discountInfo.subtitle}
             />
-
-            <SectionRooms roomList={discountInfo?.dest_list?.["广州"]} itemWidth={"33.3%"}/>
+            <SectionTabs tabNames={tabNames} />
+            <SectionRooms
+              roomList={discountInfo?.dest_list?.["广州"]}
+              itemWidth={"33.3%"}
+            />
           </div>
         )}
 
         {/* 高性价比 */}
-        <HomeSectionV1 inforData={goodPriceInfo} />
+        {/* <HomeSectionV1 inforData={goodPriceInfo} /> */}
         {/* 高分 */}
-        <HomeSectionV1 inforData={highScoreInfo} />
+        {/* <HomeSectionV1 inforData={highScoreInfo} /> */}
       </div>
     </HomeWrapper>
   );
