@@ -11,7 +11,7 @@ const RoomItem = memo((props) => {
   const customStyle = {
     verifycolor: itemData?.verify_info?.text_color || "#39576a",
     contentcolor: itemData?.bottom_info?.content_color || "green",
-    itemWidth,
+    itemwidth:itemWidth,
   };
   return (
     <ItemWrapper {...customStyle}>

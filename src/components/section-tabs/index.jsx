@@ -4,13 +4,14 @@ import classNames from 'classnames';
 import { TabsWrapper } from "./style";
 
 const SectionTabs = memo((props) => {
-  const { tabNames = [] } = props;
+  const { tabNames = [],tabClick  } = props;
 
   /** 选中index */
   const [currentIndex, setCurrentIndex] = useState(0);
   
-  function itemClickHandle(index) {
+  function itemClickHandle(index,item) {
     setCurrentIndex(index);
+    tabClick(index,item)
   }
   return (
     <TabsWrapper>
@@ -19,7 +20,7 @@ const SectionTabs = memo((props) => {
           <li
             key={item}
             className={classNames("item", { active: index === currentIndex })}
-            onClick={(e) => itemClickHandle(index)}
+            onClick={(e) => itemClickHandle(index,item)}
           >
             {item}
           </li>
@@ -31,6 +32,7 @@ const SectionTabs = memo((props) => {
 
 SectionTabs.propTypes = {
   tabNames: PropTypes.array,
+  tabClick:PropTypes.func
 };
 
 export default SectionTabs;
