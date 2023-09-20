@@ -6,11 +6,9 @@ const HomeWrapper = styled.div`
     margin: 0 auto;
   }
 
-  .good-price {
+  .good-price, .high-score {
     margin-top: 30px;
   }
-
- 
 `;
 
 export default HomeWrapper;
