@@ -20,3 +20,10 @@ export function getHomeDiscountData(params) {
     url: "/home/discount",
   });
 }
+
+// 热门推荐
+export function getHotRecommend(params) {
+  return myRequest.get({
+    url: "/home/hotrecommenddest",
+  });
+}

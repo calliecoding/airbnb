@@ -11,11 +11,12 @@ import { isEmptyObj } from "@/utils";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo } = useSelector(
+  const { goodPriceInfo, highScoreInfo, discountInfo ,hotRecommendInfo} = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
       highScoreInfo: state.home.highScoreInfo,
       discountInfo: state.home.discountInfo,
+      hotRecommendInfo: state.home.hotRecommendInfo,
     }),
     shallowEqual
   );
@@ -33,8 +34,12 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
+       
         {/* 折扣数据 */}
         {isEmptyObj(discountInfo) && <HomeSectionV2 inforData={discountInfo} />}
+
+         {/* 热门推荐 */}
+         {isEmptyObj(hotRecommendInfo) && <HomeSectionV2 inforData={hotRecommendInfo} />}
 
         {/* 高性价比 */}
         {isEmptyObj(goodPriceInfo) && (
