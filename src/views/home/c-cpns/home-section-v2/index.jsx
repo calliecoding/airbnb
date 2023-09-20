@@ -9,11 +9,11 @@ const HomeSectionV2 = memo((props) => {
   const { inforData } = props;
 
   /** 定义内部状态 */
-  const initialName = Object.keys(inforData?.dest_list ?? {})[0]??""
-  const [name, setName] = useState("广州");
+  const initialName = Object.keys(inforData.dest_list)[0]
+  const [name, setName] = useState(initialName);
 
   /** 数据处理 */
-  const tabNames = Object.keys(inforData?.dest_list ?? {});
+  const tabNames = Object.keys(inforData.dest_list);
 
   /** 事件处理函数 */
   const tabClickHandle = useCallback(function (index, item) {

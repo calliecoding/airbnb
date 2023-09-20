@@ -34,15 +34,17 @@ const Home = memo(() => {
       <HomeBanner />
       <div className="content">
         {/* 折扣数据 */}
-        <HomeSectionV2 inforData={discountInfo} />
+        {isEmptyObj(discountInfo) && <HomeSectionV2 inforData={discountInfo} />}
 
         {/* 高性价比 */}
-
-        <HomeSectionV1 inforData={goodPriceInfo} />
+        {isEmptyObj(goodPriceInfo) && (
+          <HomeSectionV1 inforData={goodPriceInfo} />
+        )}
 
         {/* 高分 */}
-
-        <HomeSectionV1 inforData={highScoreInfo} />
+        {isEmptyObj(highScoreInfo) && (
+          <HomeSectionV1 inforData={highScoreInfo} />
+        )}
       </div>
     </HomeWrapper>
   );
