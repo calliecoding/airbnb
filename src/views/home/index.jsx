@@ -6,15 +6,16 @@ import HomeBanner from "./c-cpns/home-banner/index.jsx";
 import { fetchHomeDataAction } from "@/store/modeules/home";
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
+import HomeSectionV1 from "./c-cpns/home-section-v1";
 
 const Home = memo(() => {
   //   const [highScore, setHighScore] = useState({});
 
   /** 从redux中获取数据 */
-  const { goodPriceInfo ,highScoreInfo} = useSelector(
+  const { goodPriceInfo, highScoreInfo } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
-      highScoreInfo:state.home.highScoreInfo
+      highScoreInfo: state.home.highScoreInfo,
     }),
     shallowEqual
   );
@@ -30,16 +31,8 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        {/* 高性价比 */}
-        <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title} />
-          <SectionRooms roomList={goodPriceInfo.list} />
-        </div>
-        {/* 高分 */}
-        <div className="high-score">
-          <SectionHeader title={highScoreInfo.title}  subtitle={highScoreInfo.subtitle}/>
-          <SectionRooms roomList={highScoreInfo.list} />
-        </div>
+        <HomeSectionV1 inforData={goodPriceInfo} />
+        <HomeSectionV1 inforData={highScoreInfo} />
       </div>
     </HomeWrapper>
   );
