@@ -34,3 +34,10 @@ export function getLongforData(params) {
     url: "/home/longfor",
   });
 }
+
+// 向往城市
+export function getPlusData(params) {
+    return myRequest.get({
+      url: "/home/plus",
+    });
+  } 

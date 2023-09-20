@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const ItemWrapper = styled.li`
+export const ItemWrapper = styled.div`
   width: ${props => [props.itemwidth]};
   padding: 8px;
   box-sizing: border-box;
+  flex-shrink: 0;
   .inner {
     width: 100%;
   }

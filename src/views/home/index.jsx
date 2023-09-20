@@ -9,16 +9,25 @@ import HomeSectionV1 from "./c-cpns/home-section-v1";
 import HomeSectionV2 from "./c-cpns/home-section-v2";
 import { isEmptyObj } from "@/utils";
 import HomeLongfor from "./c-cpns/home-longfor";
+import HomeSectionV3 from "./c-cpns/home-section-v3";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo ,hotRecommendInfo,longforInfo} = useSelector(
+  const {
+    goodPriceInfo,
+    highScoreInfo,
+    discountInfo,
+    hotRecommendInfo,
+    longforInfo,
+    plusInfo,
+  } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
       highScoreInfo: state.home.highScoreInfo,
       discountInfo: state.home.discountInfo,
       hotRecommendInfo: state.home.hotRecommendInfo,
-      longforInfo:state.home.longforInfo
+      longforInfo: state.home.longforInfo,
+      plusInfo: state.home.plusInfo,
     }),
     shallowEqual
   );
@@ -36,12 +45,15 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        {isEmptyObj(longforInfo) && <HomeLongfor inforData={longforInfo} />}
         {/* 折扣数据 */}
         {isEmptyObj(discountInfo) && <HomeSectionV2 inforData={discountInfo} />}
 
-         {/* 热门推荐 */}
-         {isEmptyObj(hotRecommendInfo) && <HomeSectionV2 inforData={hotRecommendInfo} />}
+        {/* 热门推荐 */}
+        {isEmptyObj(hotRecommendInfo) && (
+          <HomeSectionV2 inforData={hotRecommendInfo} />
+        )}
+        {/* 向往城市 */}
+        {isEmptyObj(longforInfo) && <HomeLongfor inforData={longforInfo} />}
 
         {/* 高性价比 */}
         {isEmptyObj(goodPriceInfo) && (
@@ -52,6 +64,8 @@ const Home = memo(() => {
         {isEmptyObj(highScoreInfo) && (
           <HomeSectionV1 inforData={highScoreInfo} />
         )}
+        {/* 高分 */}
+        {isEmptyObj(plusInfo) && <HomeSectionV3 inforData={plusInfo} />}
       </div>
     </HomeWrapper>
   );
