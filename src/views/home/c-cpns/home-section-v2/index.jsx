@@ -5,11 +5,12 @@ import { SectionV2Warpper } from "./style";
 import SectionTabs from "@/components/section-tabs";
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
+import SectionFooter from "@/components/section-footer";
 const HomeSectionV2 = memo((props) => {
   const { inforData } = props;
 
   /** 定义内部状态 */
-  const initialName = Object.keys(inforData.dest_list)[0]
+  const initialName = Object.keys(inforData.dest_list)[0];
   const [name, setName] = useState(initialName);
 
   /** 数据处理 */
@@ -20,7 +21,6 @@ const HomeSectionV2 = memo((props) => {
     setName(item);
   }, []);
 
-  
   return (
     <SectionV2Warpper>
       <div className="discount">
@@ -30,6 +30,7 @@ const HomeSectionV2 = memo((props) => {
           roomList={inforData?.dest_list?.[name]}
           itemWidth={"33.3%"}
         />
+        <SectionFooter name={name} />
       </div>
     </SectionV2Warpper>
   );
