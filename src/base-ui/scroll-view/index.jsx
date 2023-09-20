@@ -5,10 +5,11 @@ import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
 
 const ScrollView = memo((props) => {
+  const { tabIndex } = props;
   /** 定义内部状态 */
   const [showRight, setShowRight] = useState(false); // 右边按钮
   const [showLeft, setShowLeft] = useState(false); // 左边按钮
-  const [posIndex, setPosIndex] = useState(0); // 距离定位父级的偏移
+  const [posIndex, setPosIndex] = useState(tabIndex); // 距离定位父级的偏移
   const totalDistanceRef = useRef();
 
   /** 组件渲染完毕后，判断是否显示右侧按钮*/
@@ -18,21 +19,11 @@ const ScrollView = memo((props) => {
     const clientWidth = srcollContentRef.current.clientWidth;
     totalDistanceRef.current = scrollWidth - clientWidth;
 
-    setShowRight(totalDistanceRef.current > 0);
-  }, [props.children]);
-
-  function rightClickHandle(params) {
-    console.log(11);
-    const newIndex = posIndex + 1;
-    setPosIndex(newIndex);
-    const newEl = srcollContentRef.current.children[newIndex];
+    const newEl = srcollContentRef.current.children[posIndex];
     const newElOffSetLeft = newEl.offsetLeft;
-    srcollContentRef.current.style.transform = `translate(-${newElOffSetLeft}px)`;
-
     // 判断是否继续显示右边按钮
     setShowRight(totalDistanceRef.current > newElOffSetLeft);
-    setShowLeft(newElOffSetLeft > 0);
-  }
+  }, [props.children]);
 
   function controlClickHandle(isRight) {
     const newIndex = isRight ? posIndex + 1 : posIndex - 1;
@@ -70,11 +61,10 @@ const ScrollView = memo((props) => {
       )}
 
       <div className="srcoll">
-      <div className="scroll-content" ref={srcollContentRef}>
-        {props.children}
+        <div className="scroll-content" ref={srcollContentRef}>
+          {props.children}
+        </div>
       </div>
-      </div>
-    
     </ViewWrapper>
   );
 });

@@ -16,19 +16,23 @@ const SectionTabs = memo((props) => {
   }
   return (
     <TabsWrapper>
-      <ScrollView>
-        {tabNames.map((item, index) => {
-          return (
-            <li
-              key={item}
-              className={classNames("item", { active: index === currentIndex })}
-              onClick={(e) => itemClickHandle(index, item)}
-            >
-              {item}
-            </li>
-          );
-        })}
-      </ScrollView>
+      {tabNames.length && (
+        <ScrollView tabIndex={currentIndex}>
+          {tabNames.map((item, index) => {
+            return (
+              <li
+                key={item}
+                className={classNames("item", {
+                  active: index === currentIndex,
+                })}
+                onClick={(e) => itemClickHandle(index, item)}
+              >
+                {item}
+              </li>
+            );
+          })}
+        </ScrollView>
+      )}
     </TabsWrapper>
   );
 });
