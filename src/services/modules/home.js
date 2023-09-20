@@ -8,7 +8,7 @@ export function getHomeGoodPriceData(params) {
 }
 
 // 高评分数据
-export function getHomeHighscoreData(params) {
+export function getHomeHighScoreData(params) {
   return myRequest.get({
     url: "/home/highscore",
   });
