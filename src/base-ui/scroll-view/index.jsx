@@ -5,7 +5,7 @@ import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
 
 const ScrollView = memo((props) => {
-  const { tabIndex } = props;
+  const { tabIndex = 0 } = props;
   /** 定义内部状态 */
   const [showRight, setShowRight] = useState(false); // 右边按钮
   const [showLeft, setShowLeft] = useState(false); // 左边按钮
@@ -26,6 +26,7 @@ const ScrollView = memo((props) => {
   }, [props.children]);
 
   function controlClickHandle(isRight) {
+    console.log(122);
     const newIndex = isRight ? posIndex + 1 : posIndex - 1;
     setPosIndex(newIndex);
     const newEl = srcollContentRef.current.children[newIndex];

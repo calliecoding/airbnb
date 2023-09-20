@@ -8,15 +8,17 @@ import HomeSectionV1 from "./c-cpns/home-section-v1";
 
 import HomeSectionV2 from "./c-cpns/home-section-v2";
 import { isEmptyObj } from "@/utils";
+import HomeLongfor from "./c-cpns/home-longfor";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
-  const { goodPriceInfo, highScoreInfo, discountInfo ,hotRecommendInfo} = useSelector(
+  const { goodPriceInfo, highScoreInfo, discountInfo ,hotRecommendInfo,longforInfo} = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
       highScoreInfo: state.home.highScoreInfo,
       discountInfo: state.home.discountInfo,
       hotRecommendInfo: state.home.hotRecommendInfo,
+      longforInfo:state.home.longforInfo
     }),
     shallowEqual
   );
@@ -34,7 +36,7 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-       
+        {isEmptyObj(longforInfo) && <HomeLongfor inforData={longforInfo} />}
         {/* 折扣数据 */}
         {isEmptyObj(discountInfo) && <HomeSectionV2 inforData={discountInfo} />}
 

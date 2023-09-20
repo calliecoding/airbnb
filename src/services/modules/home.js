@@ -22,8 +22,15 @@ export function getHomeDiscountData(params) {
 }
 
 // 热门推荐
-export function getHotRecommend(params) {
+export function getHotRecommendData(params) {
   return myRequest.get({
     url: "/home/hotrecommenddest",
+  });
+}
+
+// 向往城市
+export function getLongforData(params) {
+  return myRequest.get({
+    url: "/home/longfor",
   });
 }
