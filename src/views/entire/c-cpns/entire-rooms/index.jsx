@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import React, { memo } from "react";
 import { RoomsWrapper } from "./style";
-import { useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 import RoomItem from "@/components/room-item";
 
 const EntireRooms = memo((props) => {
   const { roomList, totalCount } = useSelector((state) => ({
     roomList: state.entire.roomList,
     totalCount: state.entire.totalCount,
-  }));
+  }),shallowEqual);
   return (
     <RoomsWrapper>
       <h2 className="title">{totalCount}多处住所</h2>
