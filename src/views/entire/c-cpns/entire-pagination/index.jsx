@@ -25,7 +25,9 @@ const EntirePagination = memo((props) => {
   function pageChangeHandle(event, pageCount) {
      // 回到顶部
      window.scrollTo(0, 0)
-     dispatch(changeCurrentPageAction(pageCount - 1))
+
+    //  redux中更新最新的页码
+    //  dispatch(changeCurrentPageAction(pageCount - 1))
      dispatch(fetchRoomListAction(pageCount - 1))
   }
   return (
