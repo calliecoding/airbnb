@@ -14,7 +14,7 @@ const EntireRooms = memo((props) => {
       <h2 className="title">{totalCount}多处住所</h2>
 
       <div className="list">
-        {roomList.map((item) => {
+        {!!roomList.length&&roomList.map((item) => {
           return <RoomItem key={item.id} itemData={item} itemWidth="20%" />;
         })}
       </div>
