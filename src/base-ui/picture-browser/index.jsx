@@ -1,25 +1,36 @@
-import PropTypes from 'prop-types'
-import React, { memo, useEffect } from 'react'
-import { BrowserWrapper } from './style'
+import PropTypes from "prop-types";
+import React, { memo, useEffect } from "react";
+import { BrowserWrapper } from "./style";
+import IconClose from "@/assets/svg/icon-close";
 
 const PictureBrowser = memo((props) => {
-
-    // 当图片浏览器展示出来时, 滚动的功能消失
+  const { pictureUrls, closeClick } = props;
+  // 当图片浏览器展示出来时, 滚动的功能消失
   useEffect(() => {
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [])
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
-
+   /** 事件监听的逻辑 */
+   function closeBtnClickHandle() {
+    if (closeClick) closeClick()
+  }
   return (
     <BrowserWrapper>
-
+      <div className="top">
+        <div className="close-btn" onClick={closeBtnClickHandle}>
+         <IconClose/>
+        </div>
+      </div>
     </BrowserWrapper>
-  )
-})
+  );
+});
 
-PictureBrowser.propTypes = {}
+PictureBrowser.propTypes = {
+  pictureUrls: PropTypes.array,
+  closeClick:PropTypes.func
+};
 
-export default PictureBrowser
+export default PictureBrowser;

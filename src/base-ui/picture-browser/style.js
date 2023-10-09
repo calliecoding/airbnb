@@ -13,5 +13,15 @@ export const BrowserWrapper = styled.div`
   flex-direction: column;
 
   background-color: #333;
+  .top {
+    position: relative;
+    height: 86px;
 
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      cursor: pointer;
+    }
+  }
 `
