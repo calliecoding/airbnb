@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const CenterWrapper = styled.div`
-
   .search-bar {
     ${(props) => props.theme.flex.betweenCenter};
     width: 300px;
@@ -12,8 +11,7 @@ export const CenterWrapper = styled.div`
     border-radius: 24px;
     cursor: pointer;
     ${(props) => props.theme.mixin.boxShadow};
-  }
-  .text {
+    .text {
       padding: 0 16px;
       color: #222;
       font-weight: 600;
@@ -27,6 +25,20 @@ export const CenterWrapper = styled.div`
       height: 32px;
       border-radius: 50%;
       color: #fff;
-      background-color: ${props => props.theme.color.primaryColor};
+      background-color: ${(props) => props.theme.color.primaryColor};
     }
+  }
+
+  .search-detail {
+    position: relative;
+    transform-origin: 50% 0;
+    will-change: transform, opacity;
+
+    .infos {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 `;
