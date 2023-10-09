@@ -19,15 +19,18 @@ const Indicator = memo((props) => {
     // 2.content的宽度
     const contentWidth = contentRef.current.clientWidth;
     const contentScroll = contentRef.current.scrollWidth;
-    console.log(itemLeft, contentWidth, contentScroll, "useEffect");
 
     // 3.获取selectIndex要滚动的距离
-    let distance = itemLeft + itemWidth * 0.5 - contentWidth * 0.5
+    let distance = itemLeft + itemWidth * 0.5 - contentWidth * 0.5;
 
-    console.log(distance)
+    // 4.特殊情况判断（居中情况）
+    if (distance < 0) distance = 0;// 左边的特殊情况处理
 
-    // 4.改变位置即可
-    contentRef.current.style.transform = `translate(${-distance}px)`
+    const totalDistance = contentScroll - contentWidth
+    if (distance > totalDistance) distance = totalDistance // 右边的特殊情况处理
+
+    // 5.改变位置即可
+    contentRef.current.style.transform = `translate(${-distance}px)`;
   }, [selectIndex]);
 
   return (
