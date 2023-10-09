@@ -36,56 +36,57 @@ const RoomItem = memo((props) => {
 
     setSelectIndex(newIndex);
   }
+
+  //轮播图
+  const sliderElement = (
+    <div className="slider">
+      <div className="controls">
+        <div className="btn left" onClick={(e) => controlClickHandle(false)}>
+          <IconArrowLeft height="30" width="30" />
+        </div>
+        <div className="btn right" onClick={(e) => controlClickHandle(true)}>
+          <IconArrowRight height="30" width="30" />
+        </div>
+      </div>
+
+      <div className="indicator">
+        <Indicator selectIndex={selectIndex}>
+          {itemData?.picture_urls?.map((item, index) => {
+            return (
+              <div className="dot-item" key={item}>
+                <span
+                  className={classNames("dot", {
+                    active: selectIndex === index,
+                    dot2:
+                      index === selectIndex + 1 || index === selectIndex - 1,
+                  })}
+                ></span>
+              </div>
+            );
+          })}
+        </Indicator>
+      </div>
+      <Carousel dots={false} ref={sliderRef}>
+        {itemData?.picture_urls?.map((item) => {
+          return (
+            <div className="cover" key={item}>
+              <img src={item} alt="" />
+            </div>
+          );
+        })}
+      </Carousel>
+    </div>
+  );
+  // 单一图片  
+  const picElement = (
+    <div className="cover">
+      <img src={itemData.picture_url} alt="" />
+    </div>
+  );
   return (
     <ItemWrapper {...customStyle}>
       <div className="inner">
-        {/* <div className="cover">
-          <img src={itemData.picture_url} alt="" />
-        </div> */}
-
-        <div className="slider">
-          <div className="controls">
-            <div
-              className="btn left"
-              onClick={(e) => controlClickHandle(false)}
-            >
-              <IconArrowLeft height="30" width="30" />
-            </div>
-            <div
-              className="btn right"
-              onClick={(e) => controlClickHandle(true)}
-            >
-              <IconArrowRight height="30" width="30" />
-            </div>
-          </div>
-
-          <div className="indicator">
-            <Indicator selectIndex={selectIndex}>
-              {itemData?.picture_urls?.map((item, index) => {
-                return (
-                  <div className="dot-item" key={item}>
-                    <span
-                      className={classNames("dot", {
-                        active: selectIndex === index,
-                        dot2: (index === selectIndex + 1) || (index === selectIndex -1),
-                      })}
-                    ></span>
-                  </div>
-                );
-              })}
-            </Indicator>
-          </div>
-          <Carousel dots={false} ref={sliderRef}>
-            {itemData?.picture_urls?.map((item) => {
-              return (
-                <div className="cover" key={item}>
-                  <img src={item} alt="" />
-                </div>
-              );
-            })}
-          </Carousel>
-        </div>
-
+        {itemData?.picture_urls ? sliderElement : picElement}
         <div className="desc">{itemData.verify_info.messages.join("·")}</div>
         <div className="name">{itemData.name}</div>
         <div className="price">{itemData.price_format}/晚</div>
