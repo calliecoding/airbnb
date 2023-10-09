@@ -10,7 +10,7 @@ import Indicator from "@/base-ui/indicator";
 import classNames from "classnames";
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth } = props;
+  const { itemData, itemWidth, itemClick } = props;
 
   // 动态样式
   const customStyle = {
@@ -37,7 +37,11 @@ const RoomItem = memo((props) => {
     setSelectIndex(newIndex);
   }
 
-  //轮播图
+  function itemClickHandle(params) {
+    // 点击事件处理
+    if (itemClick) itemClick(itemData);
+  }
+  //展示轮播图
   const sliderElement = (
     <div className="slider">
       <div className="controls">
@@ -77,14 +81,15 @@ const RoomItem = memo((props) => {
       </Carousel>
     </div>
   );
-  // 单一图片  
+  // 展示单一图片
   const picElement = (
     <div className="cover">
       <img src={itemData.picture_url} alt="" />
     </div>
   );
+
   return (
-    <ItemWrapper {...customStyle}>
+    <ItemWrapper {...customStyle} onClick={(e) => itemClickHandle()}>
       <div className="inner">
         {itemData?.picture_urls ? sliderElement : picElement}
         <div className="desc">{itemData.verify_info.messages.join("·")}</div>
@@ -111,6 +116,7 @@ const RoomItem = memo((props) => {
 RoomItem.propTypes = {
   itemData: PropTypes.object,
   itemWidth: PropTypes.string,
+  itemClick: PropTypes.func,
 };
 
 export default RoomItem;
