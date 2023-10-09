@@ -6,6 +6,14 @@ export const HeaderWrapper = styled.div`
     height: 80px;
     border-bottom: 1px solid #eee;
 
+    &.fixed {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+  }
   .left {
     /* color: orange; */
   }

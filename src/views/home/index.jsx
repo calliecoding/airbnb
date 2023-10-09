@@ -10,6 +10,7 @@ import HomeSectionV2 from "./c-cpns/home-section-v2";
 import { isEmptyObj } from "@/utils";
 import HomeLongfor from "./c-cpns/home-longfor";
 import HomeSectionV3 from "./c-cpns/home-section-v3";
+import { changeHeaderConfigAction } from "@/store/modeules/main";
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
@@ -39,6 +40,9 @@ const Home = memo(() => {
   /** dispatch 副作用 */
   useEffect(() => {
     dispatch(fetchHomeDataAction());
+    dispatch(changeHeaderConfigAction({
+        isFixed: true,
+    }))
   }, [dispatch]);
 
   return (

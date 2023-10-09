@@ -15,16 +15,16 @@ import "@/assets/css/base.less";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   //   <React.StrictMode>
-  <Suspense fallback="loading">
-    <Provider store={store}>
-      
-        <ThemeProvider theme={theme}>
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </ThemeProvider>
-    </Provider>
-  </Suspense>
+  <Provider store={store}>
+    <Suspense fallback="loading">
+      <ThemeProvider theme={theme}>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </ThemeProvider>
+    </Suspense>
+  </Provider>
+
   //   </React.StrictMode>
 );
 

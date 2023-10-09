@@ -6,6 +6,7 @@ import EntirePagination from "./c-cpns/entire-pagination";
 import { getEntireRoomList } from "@/services/modules/entire";
 import { useDispatch } from "react-redux";
 import { fetchRoomListAction } from "@/store/modeules/entire/createActions";
+import { changeHeaderConfigAction } from "@/store/modeules/main";
 
 const Entire = memo(() => {
   //发送网络请求 
@@ -15,6 +16,9 @@ const Entire = memo(() => {
     //   console.log(res);
     // });
     dispatch(fetchRoomListAction())
+    dispatch(changeHeaderConfigAction({
+        isFixed: true,
+    }))
   },[dispatch]);
 
 

@@ -1,15 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit"; 
+import { configureStore } from "@reduxjs/toolkit";
+import mainReducer from "./modeules/main"
 import homeReducer from "./modeules/home";
-import entireReducer from './modeules/entire'
-import detailReducer from './modeules/detail'
+import entireReducer from "./modeules/entire";
+import detailReducer from "./modeules/detail";
 const store = configureStore({
-    reducer:{
-        home:homeReducer,
-        entire:entireReducer,
-        detail:detailReducer
-    },
+  reducer: {
+    main: mainReducer,
+    home: homeReducer,
+    entire: entireReducer,
+    detail: detailReducer,
+  },
+});
 
-})
-
-
-export default store
+export default store;
