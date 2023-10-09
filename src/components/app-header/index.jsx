@@ -1,8 +1,9 @@
-import React, { memo, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import { HeaderWrapper, SearchAreaWrapper } from "./style";
 import { HeaderCenter, HeaderLeft, HeaderRight } from "./c-cpns";
 import { shallowEqual, useSelector } from "react-redux";
 import classNames from "classnames";
+import { useScrollPosition } from "@/hooks";
 
 const AppHeader = memo(() => {
   /** 组件内部状态 */
@@ -14,8 +15,16 @@ const AppHeader = memo(() => {
     }),
     shallowEqual
   );
-
   const { isFixed } = headerConfig;
+
+  /** 监听滚动 */
+  const { scrollY } = useScrollPosition();
+  // 记录之前的位置
+  const prevY = useRef(0);
+  // 在正常情况的情况下(搜索框没有弹出来), 不断记录值
+  if (!isSearch) prevY.current = scrollY;
+  // 在弹出搜索功能的情况, 滚动的距离大于之前记录的距离的30
+  if (isSearch && Math.abs(scrollY - prevY.current) > 30) setIsSearch(false);
 
   return (
     <HeaderWrapper className={classNames({ fixed: isFixed })}>
