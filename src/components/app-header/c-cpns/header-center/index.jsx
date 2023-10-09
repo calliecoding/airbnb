@@ -48,7 +48,7 @@ const HeaderCenter = memo((props) => {
     </CSSTransition>
   );
   return (
-    <CenterWrapper>
+    <CenterWrapper isSearch={isSearch}>
       {searchBarEle} {searchDetailEle}
     </CenterWrapper>
   );

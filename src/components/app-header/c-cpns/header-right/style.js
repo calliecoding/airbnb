@@ -9,6 +9,8 @@ export const RightWrapper = styled.div`
   .btns {
     ${(props) => props.theme.flex.centerCenter};
     box-sizing: content-box;
+    color: ${(props) =>
+      props.theme.isAlpha ? "#fff" : props.theme.text.primaryColor};
     .btn {
       height: 18px;
       line-height: 18px;
@@ -16,6 +18,10 @@ export const RightWrapper = styled.div`
       border-radius: 22px;
       cursor: pointer;
       box-sizing: content-box;
+      &:hover {
+        background-color: ${(props) =>
+          props.theme.isAlpha ? "rgba(255,255,255,.1)" : "f5f5f5"};
+      }
     }
   }
   .profile {

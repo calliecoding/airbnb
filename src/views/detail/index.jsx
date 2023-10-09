@@ -14,6 +14,7 @@ const Detail = memo(() => {
     dispatch(
       changeHeaderConfigAction({
         isFixed: false,
+        topAlpha:false,
       })
     );
   }, [dispatch]);

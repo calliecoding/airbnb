@@ -42,6 +42,7 @@ const Home = memo(() => {
     dispatch(fetchHomeDataAction());
     dispatch(changeHeaderConfigAction({
         isFixed: true,
+        topAlpha:true,
     }))
   }, [dispatch]);
 

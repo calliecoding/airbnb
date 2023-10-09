@@ -18,6 +18,7 @@ const Entire = memo(() => {
     dispatch(fetchRoomListAction())
     dispatch(changeHeaderConfigAction({
         isFixed: true,
+        topAlpha:false,
     }))
   },[dispatch]);
 

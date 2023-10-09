@@ -1,4 +1,5 @@
 import React, { memo, useRef, useState } from "react";
+import { ThemeProvider } from "styled-components";
 import { HeaderWrapper, SearchAreaWrapper } from "./style";
 import { HeaderCenter, HeaderLeft, HeaderRight } from "./c-cpns";
 import { shallowEqual, useSelector } from "react-redux";
@@ -15,7 +16,7 @@ const AppHeader = memo(() => {
     }),
     shallowEqual
   );
-  const { isFixed } = headerConfig;
+  const { isFixed, topAlpha } = headerConfig;
 
   /** 监听滚动 */
   const { scrollY } = useScrollPosition();
@@ -26,24 +27,28 @@ const AppHeader = memo(() => {
   // 在弹出搜索功能的情况, 滚动的距离大于之前记录的距离的30
   if (isSearch && Math.abs(scrollY - prevY.current) > 30) setIsSearch(false);
 
+  /** 透明度的逻辑 */
+  const isAlpha = topAlpha && scrollY === 0;
   return (
-    <HeaderWrapper className={classNames({ fixed: isFixed })}>
-      <div className="content">
-        <div className="top">
-          <HeaderLeft />
-          <HeaderCenter
-            isSearch={isSearch}
-            searchBarClick={(e) => setIsSearch(true)}
-          />
-          <HeaderRight />
+    <ThemeProvider theme={{ isAlpha }}>
+      <HeaderWrapper className={classNames({ fixed: isFixed })}>
+        <div className="content">
+          <div className="top">
+            <HeaderLeft />
+            <HeaderCenter
+              isSearch={isAlpha || isSearch}
+              searchBarClick={(e) => setIsSearch(true)}
+            />
+            <HeaderRight />
+          </div>
+          <SearchAreaWrapper isSearch={isSearch} />
         </div>
-        <SearchAreaWrapper isSearch={isSearch} />
-      </div>
 
-      {isSearch && (
-        <div className="cover" onClick={(e) => setIsSearch(false)}></div>
-      )}
-    </HeaderWrapper>
+        {isSearch && (
+          <div className="cover" onClick={(e) => setIsSearch(false)}></div>
+        )}
+      </HeaderWrapper>
+    </ThemeProvider>
   );
 });
 
