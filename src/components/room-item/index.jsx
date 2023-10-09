@@ -6,6 +6,8 @@ import { Carousel } from "antd";
 import { ItemWrapper } from "./style";
 import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
+import Indicator from "@/base-ui/indicator";
+import classNames from "classnames";
 
 const RoomItem = memo((props) => {
   const { itemData, itemWidth } = props;
@@ -18,11 +20,21 @@ const RoomItem = memo((props) => {
   };
 
   const sliderRef = useRef();
+  const [selectIndex, setSelectIndex] = useState(0);
 
   /** 事件处理的逻辑 */
   function controlClickHandle(isRight = true) {
     // 上一个面板/下一个面板
     isRight ? sliderRef.current.next() : sliderRef.current.prev();
+
+    let newIndex = isRight ? selectIndex + 1 : selectIndex - 1;
+
+    const len = itemData?.picture_urls?.length;
+    // 边界判断
+    if (newIndex < 0) newIndex = len - 1;
+    if (newIndex > len - 1) newIndex = 0;
+
+    setSelectIndex(newIndex);
   }
   return (
     <ItemWrapper {...customStyle}>
@@ -45,6 +57,23 @@ const RoomItem = memo((props) => {
             >
               <IconArrowRight height="30" width="30" />
             </div>
+          </div>
+
+          <div className="indicator">
+            <Indicator selectIndex={selectIndex}>
+              {itemData?.picture_urls?.map((item, index) => {
+                return (
+                  <div className="dot-item" key={item}>
+                    <span
+                      className={classNames("dot", {
+                        active: selectIndex === index,
+                        dot2: (index === selectIndex + 1) || (index === selectIndex -1),
+                      })}
+                    ></span>
+                  </div>
+                );
+              })}
+            </Indicator>
           </div>
           <Carousel dots={false} ref={sliderRef}>
             {itemData?.picture_urls?.map((item) => {
