@@ -68,6 +68,27 @@ export const BrowserWrapper = styled.div`
         height: 100%;
         user-select: none;
       }
+
+      /* 动画的样式 */
+      .pic-enter {
+        transform: translateX(${props => props.isNext ? "100%": "-100%"});
+        opacity: 0;
+      }
+
+      .pic-enter-active {
+        transform: translate(0);
+        opacity: 1;
+        transition: all 200ms ease;
+      }
+
+      .pic-exit {
+        opacity: 1;
+      }
+
+      .pic-exit-active {
+        opacity: 0;
+        transition: all 200ms ease;
+      }
     }
   }
 
