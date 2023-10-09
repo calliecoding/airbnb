@@ -1,10 +1,12 @@
-import React, { memo } from "react";
-import { HeaderWrapper } from "./style";
+import React, { memo, useState } from "react";
+import { HeaderWrapper, SearchAreaWrapper } from "./style";
 import { HeaderCenter, HeaderLeft, HeaderRight } from "./c-cpns";
 import { shallowEqual, useSelector } from "react-redux";
 import classNames from "classnames";
 
 const AppHeader = memo(() => {
+  /** 组件内部状态 */
+  const [isSearch, setIsSearch] = useState(false);
   /** redux */
   const { headerConfig } = useSelector(
     (state) => ({
@@ -15,19 +17,23 @@ const AppHeader = memo(() => {
 
   const { isFixed } = headerConfig;
 
-  console.log(isFixed, "isFixed");
-
   return (
     <HeaderWrapper className={classNames({ fixed: isFixed })}>
       <div className="content">
         <div className="top">
           <HeaderLeft />
-          <HeaderCenter />
+          <HeaderCenter
+            isSearch={isSearch}
+            searchBarClick={(e) => setIsSearch(true)}
+          />
           <HeaderRight />
         </div>
-        <section className="search-section"></section>
+        <SearchAreaWrapper isSearch={isSearch} />
       </div>
-      <div className="cover"></div>
+
+      {isSearch && (
+        <div className="cover" onClick={(e) => setIsSearch(false)}></div>
+      )}
     </HeaderWrapper>
   );
 });
