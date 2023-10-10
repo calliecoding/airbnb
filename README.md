@@ -8,17 +8,23 @@
 
 ### 首页
 
-<img src="https://s1.vika.cn/space/2023/10/10/0447d723c60b4cb4b9f8d13678722ea7" alt="Pasted image 20231010084635" style="zoom:45%;" />
+
+
+<img src="https://s1.vika.cn/space/2023/10/10/0447d723c60b4cb4b9f8d13678722ea7" alt="首页" style="zoom:45%;" />
 
 ### 全部页面
 
-<img src="https://s1.vika.cn/space/2023/10/10/65ede53429d740bbbf935724221cd952" alt="Pasted image 20231010101117" style="zoom:25%;" />
+
+
+<img src="https://s1.vika.cn/space/2023/10/10/65ede53429d740bbbf935724221cd952" alt="全部页面" style="zoom:25%;" />
 
 ### 详细页面
 
-<img src="https://s1.vika.cn/space/2023/10/10/f3cb11f26fc54da2b3779f85a53f0f23" alt="Pasted image 20231010100821" style="zoom:20%;" />
 
-<img src="https://s1.vika.cn/space/2023/10/10/6e321016de1c4f10969ad40796760952" alt="Pasted image 20231010100906" style="zoom:20%;" />
+
+<img src="https://s1.vika.cn/space/2023/10/10/f3cb11f26fc54da2b3779f85a53f0f23" alt="详情页面" style="zoom:20%;" />
+
+<img src="https://s1.vika.cn/space/2023/10/10/6e321016de1c4f10969ad40796760952" alt="详情页面2" style="zoom:20%;" />
 
 ## 项目命令
 
