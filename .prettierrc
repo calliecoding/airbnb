@@ -1,0 +1,9 @@
+{
+  "_comment_":"配置更多信息查阅https://prettier.io/docs/en/options",
+  "semi": true, 
+  "singleQuote": false,
+  "endOfLine": "auto",
+  "tabWidth": 2,
+  "printWidth": 80,
+  "jsxBracketSameLine":true
+}
