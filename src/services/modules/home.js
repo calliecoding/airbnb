@@ -37,7 +37,7 @@ export function getLongforData(params) {
 
 // 向往城市
 export function getPlusData(params) {
-    return myRequest.get({
-      url: "/home/plus",
-    });
-  } 
+  return myRequest.get({
+    url: "/home/plus",
+  });
+}

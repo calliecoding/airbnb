@@ -29,7 +29,7 @@
     "prepare": "husky install",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "commit": "cz",
-    "format": "prettier --config .prettierrc --write \"src/**/*.{js,css}\""
+    "format": "prettier --config .prettierrc --write \"src/**/*.{js,css,jsx}\""
   },
   "config": {
     "commitizen": {

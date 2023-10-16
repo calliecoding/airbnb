@@ -1,6 +1,4 @@
-
 import styled from "styled-components";
-
 
 export const BrowserWrapper = styled.div`
   position: fixed;
@@ -29,7 +27,7 @@ export const BrowserWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex: 1;
-    
+
     .controls {
       position: absolute;
       z-index: 1;
@@ -71,7 +69,7 @@ export const BrowserWrapper = styled.div`
 
       /* 动画的样式 */
       .pic-enter {
-        transform: translateX(${props => props.isNext ? "100%": "-100%"});
+        transform: translateX(${(props) => (props.isNext ? "100%" : "-100%")});
         opacity: 0;
       }
 
@@ -92,13 +90,12 @@ export const BrowserWrapper = styled.div`
     }
   }
 
-
   .preview {
     display: flex;
     justify-content: center;
     height: 100px;
     margin-top: 10px;
-    
+
     .info {
       position: absolute;
       bottom: 10px;
@@ -118,7 +115,7 @@ export const BrowserWrapper = styled.div`
         margin-top: 3px;
         overflow: hidden;
         transition: height 300ms ease;
-        height: ${props => props.showList ? "67px": "0"};
+        height: ${(props) => (props.showList ? "67px" : "0")};
 
         .item {
           margin-right: 15px;
@@ -138,4 +135,4 @@ export const BrowserWrapper = styled.div`
       }
     }
   }
-`
+`;

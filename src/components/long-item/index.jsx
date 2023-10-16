@@ -13,8 +13,8 @@ const LongItem = memo((props) => {
           </div>
           <div className="bg-cover"></div>
           <div className="info">
-            <div className='city'>{itemData.city}</div>
-            <div className='price'>均价 {itemData.price}</div>
+            <div className="city">{itemData.city}</div>
+            <div className="price">均价 {itemData.price}</div>
           </div>
         </div>
       </div>

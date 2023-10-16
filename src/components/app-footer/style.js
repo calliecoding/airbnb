@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWrapper = styled.div`
   margin-top: 100px;
-  border-top: 1px solid #EBEBEB;
+  border-top: 1px solid #ebebeb;
 
   .wrapper {
     width: 1080px;
@@ -37,9 +37,9 @@ export const FooterWrapper = styled.div`
 
   .statement {
     margin-top: 30px;
-    border-top: 1px solid #EBEBEB;
+    border-top: 1px solid #ebebeb;
     padding: 20px;
     color: #767676;
     text-align: center;
   }
-`
+`;

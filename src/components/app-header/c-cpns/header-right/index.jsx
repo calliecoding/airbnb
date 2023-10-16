@@ -5,27 +5,27 @@ import IconMenu from "@/assets/svg/icon_menu";
 import IconAvatar from "@/assets/svg/icon_avatar";
 
 const HeaderRight = memo(() => {
-    /** 定义组件内部状态 */
+  /** 定义组件内部状态 */
   const [showPanel, setShowPanel] = useState(false);
 
   /** 事件处理函数 */
   function profileClickHandle() {
-    setShowPanel(true)
+    setShowPanel(true);
   }
 
   /** 副作用代码 */
-  useEffect(()=>{
+  useEffect(() => {
     function windowClickHandle() {
-        setShowPanel(false)
+      setShowPanel(false);
     }
 
-    window.addEventListener('click',windowClickHandle,true)
+    window.addEventListener("click", windowClickHandle, true);
 
     function removeClick() {
-        window.removeEventListener('click',windowClickHandle,true)
+      window.removeEventListener("click", windowClickHandle, true);
     }
-    return removeClick
-  },[])
+    return removeClick;
+  }, []);
 
   return (
     <RightWrapper className="right">

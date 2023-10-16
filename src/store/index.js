@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import mainReducer from "./modeules/main"
+import mainReducer from "./modeules/main";
 import homeReducer from "./modeules/home";
 import entireReducer from "./modeules/entire";
 import detailReducer from "./modeules/detail";

@@ -13,7 +13,7 @@ const DetailPictures = memo((props) => {
     (state) => ({
       detailInfo: state.detail.detailInfo,
     }),
-    shallowEqual
+    shallowEqual,
   );
 
   return (

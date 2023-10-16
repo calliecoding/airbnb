@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PicturesWrapper = styled.div`
-position: relative;
+  position: relative;
 
   > .pictures {
     display: flex;

@@ -43,4 +43,4 @@ export const SectionsWrapper = styled.div`
       background-color: #eee;
     }
   }
-`
+`;

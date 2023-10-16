@@ -14,7 +14,7 @@ const AppHeader = memo(() => {
     (state) => ({
       headerConfig: state.main.headerConfig,
     }),
-    shallowEqual
+    shallowEqual,
   );
   const { isFixed, topAlpha } = headerConfig;
 

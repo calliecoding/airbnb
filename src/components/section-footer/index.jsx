@@ -16,10 +16,10 @@ const SectionFooter = memo((props) => {
   const customStyle = {
     color: name ? "#00848A" : "#000",
   };
-    /** 事件处理 */
-    const navigate = useNavigate()
+  /** 事件处理 */
+  const navigate = useNavigate();
   function moreHandle(params) {
-    navigate("/entire")
+    navigate("/entire");
   }
   return (
     <FooterWrapper {...customStyle}>

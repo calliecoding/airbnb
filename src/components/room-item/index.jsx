@@ -23,9 +23,9 @@ const RoomItem = memo((props) => {
   const [selectIndex, setSelectIndex] = useState(0);
 
   /** 事件处理的逻辑 */
-  function controlClickHandle(isRight = true,e) {
+  function controlClickHandle(isRight = true, e) {
     // 阻止冒泡
-    e.stopPropagation()
+    e.stopPropagation();
     // 上一个面板/下一个面板
     isRight ? sliderRef.current.next() : sliderRef.current.prev();
 
@@ -47,10 +47,10 @@ const RoomItem = memo((props) => {
   const sliderElement = (
     <div className="slider">
       <div className="controls">
-        <div className="btn left" onClick={(e) => controlClickHandle(false,e)}>
+        <div className="btn left" onClick={(e) => controlClickHandle(false, e)}>
           <IconArrowLeft height="30" width="30" />
         </div>
-        <div className="btn right" onClick={(e) => controlClickHandle(true,e)}>
+        <div className="btn right" onClick={(e) => controlClickHandle(true, e)}>
           <IconArrowRight height="30" width="30" />
         </div>
       </div>

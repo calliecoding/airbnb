@@ -9,20 +9,20 @@ import { fetchRoomListAction } from "@/store/modeules/entire/createActions";
 import { changeHeaderConfigAction } from "@/store/modeules/main";
 
 const Entire = memo(() => {
-  //发送网络请求 
-  const dispatch = useDispatch()
+  //发送网络请求
+  const dispatch = useDispatch();
   useEffect(() => {
     // getEntireRoomList(0).then((res) => {
     //   console.log(res);
     // });
-    dispatch(fetchRoomListAction())
-    dispatch(changeHeaderConfigAction({
+    dispatch(fetchRoomListAction());
+    dispatch(
+      changeHeaderConfigAction({
         isFixed: true,
-        topAlpha:false,
-    }))
-  },[dispatch]);
-
-
+        topAlpha: false,
+      }),
+    );
+  }, [dispatch]);
 
   return (
     <EntireWrapper>

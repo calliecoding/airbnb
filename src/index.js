@@ -23,7 +23,7 @@ root.render(
         </HashRouter>
       </ThemeProvider>
     </Suspense>
-  </Provider>
+  </Provider>,
 
   //   </React.StrictMode>
 );

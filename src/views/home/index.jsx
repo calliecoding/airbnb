@@ -30,7 +30,7 @@ const Home = memo(() => {
       longforInfo: state.home.longforInfo,
       plusInfo: state.home.plusInfo,
     }),
-    shallowEqual
+    shallowEqual,
   );
   /** 数据转换 */
 
@@ -40,10 +40,12 @@ const Home = memo(() => {
   /** dispatch 副作用 */
   useEffect(() => {
     dispatch(fetchHomeDataAction());
-    dispatch(changeHeaderConfigAction({
+    dispatch(
+      changeHeaderConfigAction({
         isFixed: true,
-        topAlpha:true,
-    }))
+        topAlpha: true,
+      }),
+    );
   }, [dispatch]);
 
   return (

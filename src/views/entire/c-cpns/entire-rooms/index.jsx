@@ -7,24 +7,25 @@ import { useNavigate } from "react-router-dom";
 import { changeDetailInfoAction } from "@/store/modeules/detail";
 
 const EntireRooms = memo((props) => {
-
-  const { roomList, totalCount,isLoading } = useSelector(
+  const { roomList, totalCount, isLoading } = useSelector(
     (state) => ({
       roomList: state.entire.roomList,
       totalCount: state.entire.totalCount,
       isLoading: state.entire.isLoading,
-      
     }),
-    shallowEqual
+    shallowEqual,
   );
 
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   /** 事件处理 */
-  const itemClickHandle = useCallback((itemData)=>{
-    dispatch(changeDetailInfoAction(itemData))
-    navigate('/detail')
-  },[navigate])
+  const itemClickHandle = useCallback(
+    (itemData) => {
+      dispatch(changeDetailInfoAction(itemData));
+      navigate("/detail");
+    },
+    [navigate],
+  );
   return (
     <RoomsWrapper>
       <h2 className="title">{totalCount}多处住所</h2>
@@ -32,7 +33,14 @@ const EntireRooms = memo((props) => {
       <div className="list">
         {!!roomList.length &&
           roomList.map((item) => {
-            return <RoomItem key={item._id} itemData={item} itemWidth="20%" itemClick={itemClickHandle}/>;
+            return (
+              <RoomItem
+                key={item._id}
+                itemData={item}
+                itemWidth="20%"
+                itemClick={itemClickHandle}
+              />
+            );
           })}
       </div>
       {isLoading && <div className="cover"></div>}

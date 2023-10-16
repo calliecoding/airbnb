@@ -10,4 +10,4 @@ export const LeftWrapper = styled.div`
         cursor: pointer;
     }
 
-`
+`;

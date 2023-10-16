@@ -15,11 +15,11 @@ const HomeSectionV3 = memo((props) => {
       <div className="room-list">
         <ScrollView>
           {inforData.list.map((item) => {
-            return <RoomItem key={item.id} itemData={item}  itemWidth={"20%"}/>;
+            return <RoomItem key={item.id} itemData={item} itemWidth={"20%"} />;
           })}
         </ScrollView>
       </div>
-      <SectionFooter name={'plus'}/>
+      <SectionFooter name={"plus"} />
     </SectionV3Wrapper>
   );
 });

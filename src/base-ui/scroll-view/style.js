@@ -3,16 +3,16 @@ import styled from "styled-components";
 export const ViewWrapper = styled.div`
   position: relative;
   padding: 8px 0;
-  
-  .srcoll{
+
+  .srcoll {
     overflow: hidden;
-   
+
     .scroll-content {
       display: flex;
       transition: transform 200ms ease;
     }
   }
-    
+
   .control {
     position: absolute;
     z-index: 9;

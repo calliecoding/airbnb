@@ -14,7 +14,6 @@ const theme = {
         justify-content: space-between;
         align-items: center;
 `,
-    
   },
   text: {
     primaryColor: "#484848",

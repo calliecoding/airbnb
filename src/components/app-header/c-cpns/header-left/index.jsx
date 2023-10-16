@@ -4,9 +4,9 @@ import IconLogo from "@/assets/svg/icon_logo";
 import { useNavigate } from "react-router-dom";
 
 const HeaderLeft = memo(() => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   function logoClickHandle(params) {
-    navigate('/home')
+    navigate("/home");
   }
   return (
     <LeftWrapper className="left">

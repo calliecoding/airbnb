@@ -1,5 +1,5 @@
-import myRequest from './request'
+import myRequest from "./request";
 
-export default myRequest
+export default myRequest;
 
-export * from './modules/home'
+export * from "./modules/home";

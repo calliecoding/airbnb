@@ -5,16 +5,18 @@ import { BASE_URL, TIME_OUT } from "./config";
 class MyRequest {
   constructor(baseURL, timeout) {
     this.instance = axios.create({
-        baseURL,
-        timeout
-      })
+      baseURL,
+      timeout,
+    });
 
-      this.instance.interceptors.response.use((res) => {
-        return res.data
-      }, err => {
-        return err
-      })
-
+    this.instance.interceptors.response.use(
+      (res) => {
+        return res.data;
+      },
+      (err) => {
+        return err;
+      },
+    );
   }
 
   // 请求方法
@@ -30,5 +32,4 @@ class MyRequest {
   }
 }
 
-
-export default new MyRequest(BASE_URL,TIME_OUT)
+export default new MyRequest(BASE_URL, TIME_OUT);

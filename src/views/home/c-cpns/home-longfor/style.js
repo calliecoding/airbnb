@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const LongforWrapper = styled.div`
-margin-top: 30px;
+  margin-top: 30px;
 
-.longfor-list{
+  .longfor-list {
     /* display: flex; */
     margin-left: 0 -8px;
-}
-`
+  }
+`;
