@@ -3,7 +3,6 @@ import { EntireWrapper } from "./style";
 import EntireFilter from "./c-cpns/entire-filter";
 import EntireRooms from "./c-cpns/entire-rooms";
 import EntirePagination from "./c-cpns/entire-pagination";
-import { getEntireRoomList } from "@/services/modules/entire";
 import { useDispatch } from "react-redux";
 import { fetchRoomListAction } from "@/store/modeules/entire/createActions";
 import { changeHeaderConfigAction } from "@/store/modeules/main";

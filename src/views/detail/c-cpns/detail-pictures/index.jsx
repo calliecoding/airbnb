@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { memo } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { PicturesWrapper } from "./style";

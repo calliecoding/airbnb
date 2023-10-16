@@ -32,4 +32,5 @@ class MyRequest {
   }
 }
 
-export default new MyRequest(BASE_URL, TIME_OUT);
+const request = new MyRequest(BASE_URL, TIME_OUT);
+export default request;

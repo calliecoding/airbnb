@@ -29,6 +29,6 @@ const theme = {
   },
 };
 
-const darkTheme = {};
+// const darkTheme = {};
 
 export default theme;

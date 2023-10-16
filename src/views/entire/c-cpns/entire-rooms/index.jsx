@@ -24,7 +24,7 @@ const EntireRooms = memo((props) => {
       dispatch(changeDetailInfoAction(itemData));
       navigate("/detail");
     },
-    [navigate],
+    [navigate, dispatch],
   );
   return (
     <RoomsWrapper>

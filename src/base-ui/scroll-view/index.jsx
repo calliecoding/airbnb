@@ -23,7 +23,7 @@ const ScrollView = memo((props) => {
     const newElOffSetLeft = newEl.offsetLeft;
     // 判断是否继续显示右边按钮
     setShowRight(totalDistanceRef.current > newElOffSetLeft);
-  }, [props.children]);
+  }, [props.children, posIndex]);
 
   function controlClickHandle(isRight) {
     console.log(122);
@@ -70,6 +70,8 @@ const ScrollView = memo((props) => {
   );
 });
 
-ScrollView.propTypes = {};
+ScrollView.propTypes = {
+  tabIndex: PropTypes.number,
+};
 
 export default ScrollView;
